@@ -1,12 +1,10 @@
 import 'package:aquahome_app/main_page/model/work_period_model.dart';
-import 'package:aquahome_app/style/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:intl/intl.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 import '../../controls/rect_button.dart';
-import '../../controls/sliders/slider_shapes.dart';
 import '../../style/fonts.dart';
 import '../../style/theme_colors.dart';
 
@@ -125,7 +123,8 @@ class _WorkPeriodCellState extends State<WorkPeriodCell>
                 Expanded(
                     child: Align(
                         alignment: Alignment.centerRight,
-                        child: Switch(
+                        child:
+                        Switch(
                           value: widget.model.enable,
                           onChanged: (val) {
                             if (val) {
@@ -144,7 +143,8 @@ class _WorkPeriodCellState extends State<WorkPeriodCell>
                           activeColor: themeColors.theme == ThemeMode.dark
                               ? themeColors.primaryTextColor
                               : themeColors.thirdTextColor,
-                        )))
+                        )
+                    ))
               ],
             ),
           ),

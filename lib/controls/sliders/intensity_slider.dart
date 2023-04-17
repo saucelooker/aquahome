@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:aquahome_app/base/ref_type_wrapper.dart';
 import 'package:aquahome_app/controls/sliders/slider_shapes.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import '../../style/theme_colors.dart';
 
 class IntensitySlider extends StatefulWidget {
@@ -47,7 +47,7 @@ class _IntensitySliderState extends State<IntensitySlider> {
               activeColor: themeColors.primaryBackgroundColor,
               inactiveColor: themeColors.secondaryBackgroundColor),
         ),
-        child: Slider.adaptive(
+        child: Slider(
           value: widget.currentValue.value,
           onChanged: (double newValue) {
             if ((newValue - widget.currentValue.value).abs() <= 250 / 4 &&

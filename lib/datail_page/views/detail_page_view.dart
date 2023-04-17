@@ -1,10 +1,9 @@
 import 'package:aquahome_app/base/appbar_config.dart';
-import 'package:aquahome_app/base/base_page_view.dart';
+import 'package:aquahome_app/base/page_widget.dart';
 import 'package:aquahome_app/base/ref_type_wrapper.dart';
 import 'package:aquahome_app/controls/rect_button.dart';
 import 'package:aquahome_app/controls/sliders/gradient_slider.dart';
 import 'package:aquahome_app/controls/sliders/intensity_slider.dart';
-import 'package:aquahome_app/controls/time_toggle.dart';
 import 'package:aquahome_app/datail_page/cells/work_period_cell.dart';
 import 'package:aquahome_app/datail_page/view_models/detail_page_view_model.dart';
 import 'package:flutter/cupertino.dart';
@@ -18,7 +17,7 @@ import '../../style/constants.dart';
 import '../../style/fonts.dart';
 import '../../style/theme_colors.dart';
 
-class DetailPageView extends BasePageView<DetailPageViewModel> {
+class DetailPageView extends PageWidget<DetailPageViewModel> {
   DetailPageView({super.key}) : super();
   final GlobalKey<AnimatedListState> _key = GlobalKey();
 

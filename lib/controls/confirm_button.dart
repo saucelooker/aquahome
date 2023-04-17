@@ -33,7 +33,6 @@ class _ConfirmButtonState extends State<ConfirmButton> {
       ZoomTapAnimation(
       beginDuration: const Duration(milliseconds: 40),
       onTap: () {
-        HapticFeedback.lightImpact();
         widget.onTap();
       },
       child: Container(

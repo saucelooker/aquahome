@@ -1,5 +1,5 @@
 import 'package:aquahome_app/base/appbar_config.dart';
-import 'package:aquahome_app/base/base_page_view.dart';
+import 'package:aquahome_app/base/page_widget.dart';
 import 'package:aquahome_app/controls/action_button.dart';
 import 'package:aquahome_app/controls/confirm_button.dart';
 import 'package:aquahome_app/main_page/view_models/main_page_view_model.dart';
@@ -12,7 +12,7 @@ import '../../style/fonts.dart';
 import '../../style/theme_colors.dart';
 import '../cells/light_control_item.dart';
 
-class MainPageView extends BasePageView<MainPageViewModel> {
+class MainPageView extends PageWidget<MainPageViewModel> {
   const MainPageView({super.key});
 
   @override

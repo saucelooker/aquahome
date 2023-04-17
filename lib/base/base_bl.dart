@@ -4,7 +4,7 @@ import '../entities/light_control_entity.dart';
 import '../main_page/model/light_control_model.dart';
 import '../services/navigation_service.dart';
 
-abstract class BaseViewModel extends ChangeNotifier {
+abstract class BaseBl extends ChangeNotifier {
   List<LightControlModel> lightsCollection = [];
   NavigationService navigationService = serviceLocator<NavigationService>();
 

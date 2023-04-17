@@ -1,4 +1,4 @@
-import 'package:aquahome_app/base/base_view_model.dart';
+import 'package:aquahome_app/base/base_bl.dart';
 import 'package:aquahome_app/entities/light_control_entity.dart';
 import 'package:esptouch_flutter/esptouch_flutter.dart';
 import 'package:flutter/services.dart';
@@ -12,7 +12,7 @@ import '../repositories/general_data_repository/storage_general_data_repository.
 import '../repositories/lights_repository/storage_lights_repository.dart';
 import '../services/navigation_service.dart';
 
-class InstructionPageViewModel extends BaseViewModel {
+class InstructionPageViewModel extends BaseBl {
   ConnectionStatus connectionState = ConnectionStatus.briefing;
   LightControlModel? light;
   RouterParameters routerParameters = RouterParameters();

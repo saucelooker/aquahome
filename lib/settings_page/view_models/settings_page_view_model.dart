@@ -1,4 +1,4 @@
-import 'package:aquahome_app/base/base_view_model.dart';
+import 'package:aquahome_app/base/base_bl.dart';
 import 'package:flutter/material.dart';
 
 import '../../base/general_data.dart';
@@ -6,7 +6,7 @@ import '../../dependency_initializer.dart';
 import '../../repositories/general_data_repository/storage_general_data_repository.dart';
 import '../../services/navigation_service.dart';
 
-class SettingsPageViewModel extends BaseViewModel {
+class SettingsPageViewModel extends BaseBl {
   late String password;
   late String language;
   late ThemeMode theme;

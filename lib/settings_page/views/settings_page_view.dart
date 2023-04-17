@@ -1,5 +1,5 @@
 import 'package:aquahome_app/base/appbar_config.dart';
-import 'package:aquahome_app/base/base_page_view.dart';
+import 'package:aquahome_app/base/page_widget.dart';
 import 'package:aquahome_app/controls/text_field_with_title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -9,7 +9,7 @@ import '../../style/fonts.dart';
 import '../../style/theme_colors.dart';
 import '../view_models/settings_page_view_model.dart';
 
-class SettingsPageView extends BasePageView<SettingsPageViewModel> {
+class SettingsPageView extends PageWidget<SettingsPageViewModel> {
   const SettingsPageView({super.key});
 
   @override

@@ -1,13 +1,11 @@
-import 'package:aquahome_app/base/base_page_view.dart';
+import 'package:aquahome_app/base/page_widget.dart';
 import 'package:aquahome_app/services/navigation_service.dart';
 import 'package:aquahome_app/settings_page/views/settings_page_view.dart';
 import 'package:aquahome_app/splash/splash_page_view.dart';
 import 'package:aquahome_app/style/theme_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'base/general_data.dart';
-import 'controls/blur_tab_bar.dart';
 import 'datail_page/views/detail_page_view.dart';
 import 'dependency_initializer.dart';
 import 'instruction_page/instruction_page_view.dart';
@@ -54,7 +52,7 @@ class MyApp extends StatelessWidget {
                 )));
   }
 
-  PageRouteBuilder slideRouting(RouteSettings settings, BasePageView view) {
+  PageRouteBuilder slideRouting(RouteSettings settings, PageWidget view) {
     return PageRouteBuilder(
         transitionDuration: const Duration(milliseconds: 400),
         settings: settings,

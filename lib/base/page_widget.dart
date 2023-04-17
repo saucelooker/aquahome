@@ -1,6 +1,5 @@
 import 'package:aquahome_app/base/appbar_config.dart';
-import 'package:aquahome_app/base/base_view_model.dart';
-import 'package:aquahome_app/services/navigation_service.dart';
+import 'package:aquahome_app/base/base_bl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -8,8 +7,8 @@ import '../dependency_initializer.dart';
 import '../style/fonts.dart';
 import '../style/theme_colors.dart';
 
-abstract class BasePageView<T extends BaseViewModel> extends StatefulWidget {
-  const BasePageView({
+abstract class PageWidget<T extends BaseBl> extends StatefulWidget {
+  const PageWidget({
     Key? key,
   }) : super(key: key);
 
@@ -18,11 +17,11 @@ abstract class BasePageView<T extends BaseViewModel> extends StatefulWidget {
   AppBarConfig appBarConfiguration(T viewModel) => AppBarConfig();
 
   @override
-  State<BasePageView> createState() => BasePageViewState<T>();
+  State<PageWidget> createState() => PageWidgetState<T>();
 }
 
-class BasePageViewState<T extends BaseViewModel>
-    extends State<BasePageView<T>> {
+class PageWidgetState<T extends BaseBl>
+    extends State<PageWidget<T>> {
   T viewModel = serviceLocator<T>();
 
   @mustCallSuper

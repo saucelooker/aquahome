@@ -1,17 +1,16 @@
 import 'dart:math';
-import 'package:aquahome_app/base/base_view_model.dart';
-import 'package:aquahome_app/entities/light_control_entity.dart';
+import 'package:aquahome_app/base/base_bl.dart';
 import 'package:aquahome_app/main_page/model/light_control_model.dart';
 import 'package:aquahome_app/repositories/lights_repository/storage_lights_repository.dart';
 import 'package:aquahome_app/services/navigation_service.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
-import '../../controls/options_dialog.dart';
+import '../../controls/popup_views/options_dialog.dart';
 import '../../dependency_initializer.dart';
 import '../../request_helper.dart';
 import '../../services/api_service.dart';
 
-class MainPageViewModel extends BaseViewModel {
+class MainPageViewModel extends BaseBl {
   final _navService = serviceLocator<NavigationService>();
   final _storageService = serviceLocator<StorageLightsRepository>();
 
@@ -83,10 +82,7 @@ class MainPageViewModel extends BaseViewModel {
 
   showOptions() async {
     final result = await navigationService.showDialog(
-      const OptionsDialog(options: ['Добавить модуль', 'Настройки']),
-      dismissible: true,
-      padding: EdgeInsets.zero,
-    );
+      const OptionsDialog(options: ['Добавить модуль', 'Настройки']));
     if (result is String) {
       switch (result) {
         case 'Добавить модуль':

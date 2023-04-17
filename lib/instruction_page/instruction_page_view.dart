@@ -1,5 +1,5 @@
 import 'package:aquahome_app/base/appbar_config.dart';
-import 'package:aquahome_app/base/base_page_view.dart';
+import 'package:aquahome_app/base/page_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -9,7 +9,7 @@ import 'instruction_page_view_model.dart';
 import 'instruction_slides/instruction_card.dart';
 import 'instruction_slides/instruction_carousel.dart';
 
-class InstructionPageView extends BasePageView<InstructionPageViewModel> {
+class InstructionPageView extends PageWidget<InstructionPageViewModel> {
   const InstructionPageView({super.key});
 
   @override

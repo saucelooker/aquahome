@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
-import '../dependency_initializer.dart';
-import '../services/navigation_service.dart';
-import '../style/fonts.dart';
-import '../style/theme_colors.dart';
-import 'confirm_button.dart';
+import '../../dependency_initializer.dart';
+import '../../services/navigation_service.dart';
+import '../../style/fonts.dart';
+import '../../style/theme_colors.dart';
+import '../confirm_button.dart';
 
 class OptionsDialog extends StatefulWidget {
   final List<String> options;

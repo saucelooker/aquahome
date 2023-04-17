@@ -1,10 +1,7 @@
-import 'dart:async';
 import 'package:aquahome_app/controls/sliders/slider_shapes.dart';
-import 'package:aquahome_app/dependency_initializer.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../base/general_data.dart';
+import 'package:flutter/widgets.dart';
 import '../../style/theme_colors.dart';
 
 class TemperatureSlider extends StatefulWidget {
@@ -106,7 +103,7 @@ class _TemperatureSliderState extends State<TemperatureSlider> {
                 activeColor: Colors.transparent,
                 inactiveColor: Colors.transparent),
           ),
-          child: Slider.adaptive(
+          child: Slider(
             label: '',
             value: widget.currentValue.value,
             onChangeStart: (_) {
@@ -119,17 +116,12 @@ class _TemperatureSliderState extends State<TemperatureSlider> {
               setState(() => access = false);
             },
             onChanged: (double newValue) {
-              if ((newValue - widget.currentValue.value).abs() < 7) {
                 setState(() {
                   access = true;
                   final color = lerpGradient(newValue / 100);
                   widget.currentValue.color = color;
                   widget.currentValue.value = newValue;
                 });
-                // if (widget.onChangeValue != null) {
-                //   widget.onChangeValue!();
-                // }
-              }
             },
             min: 0,
             max: 100,

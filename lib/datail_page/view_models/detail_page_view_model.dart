@@ -1,20 +1,20 @@
 import 'dart:ui';
 
-import 'package:aquahome_app/base/base_view_model.dart';
+import 'package:aquahome_app/base/base_bl.dart';
 import 'package:aquahome_app/base/ref_type_wrapper.dart';
-import 'package:aquahome_app/controls/range_time_dialog.dart';
 import 'package:aquahome_app/controls/sliders/gradient_slider.dart';
 import 'package:aquahome_app/dependency_initializer.dart';
 import 'package:aquahome_app/services/navigation_service.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import '../../controls/confirm_dialog.dart';
+import '../../controls/popup_views/confirm_dialog.dart';
+import '../../controls/popup_views/range_time_dialog.dart';
 import '../../main_page/model/light_control_model.dart';
 import '../../main_page/model/work_period_model.dart';
 import '../../request_helper.dart';
 import '../../services/api_service.dart';
 
-class DetailPageViewModel extends BaseViewModel {
+class DetailPageViewModel extends BaseBl {
   late LightControlModel model;
   String title = '';
   String description = '';

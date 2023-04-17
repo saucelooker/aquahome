@@ -23,10 +23,8 @@ class NavigationService {
     Interaction(navigatorKey.currentContext!).toast(message);
   }
 
-  Future<Object?>? showDialog(Widget widget,
-      {bool? dismissible, EdgeInsets? padding, Alignment? alignment, bool softAppearing = true}) async {
-    return await Interaction(navigatorKey.currentContext!,
-            dismissible: dismissible, padding: padding, alignment: alignment, softAppearing: softAppearing)
+  Future<Object?>? showDialog(Widget widget) async {
+    return await Interaction(navigatorKey.currentContext!)
         .dialog(widget);
   }
 }

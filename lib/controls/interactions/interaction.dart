@@ -3,22 +3,15 @@ import 'dart:ui';
 import 'package:aquahome_app/style/constants.dart';
 import 'package:aquahome_app/style/fonts.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import '../../style/theme_colors.dart';
 
 class Interaction {
   BuildContext context;
   late ThemeColors themeColors;
-  final bool? dismissible;
-  final EdgeInsets? padding;
-  final Alignment? alignment;
-  final bool softAppearing;
 
-  Interaction(this.context,
-      {this.dismissible,
-      this.padding,
-      this.alignment,
-      this.softAppearing = true}) {
+  Interaction(this.context) {
     themeColors = Theme.of(context).extension<ThemeColors>()!;
   }
 
@@ -26,22 +19,16 @@ class Interaction {
 
   Future<Object?>? dialog(Widget widget) async {
     return await showGeneralDialog(
-      barrierDismissible: dismissible ?? true,
+      barrierDismissible: true,
       barrierLabel: '',
-      barrierColor: softAppearing ? Colors.black54 : Colors.transparent,
+      barrierColor: Colors.black54,
       transitionDuration:
-          Duration(milliseconds: softAppearing ? fadeAnimationTime : 10),
+          const Duration(milliseconds: fadeAnimationTime),
       pageBuilder: (ctx, anim1, anim2) => widget,
       transitionBuilder: (ctx, anim1, anim2, child) => FadeTransition(
         opacity: CurvedAnimation(parent: anim1, curve: Curves.easeInOutCubic),
-        child: Scaffold(
-          backgroundColor: Colors.transparent,
-          body: Padding(
-            padding: padding ?? const EdgeInsets.all(50.0),
-            child:
-                Align(alignment: alignment ?? Alignment.center, child: widget),
-          ),
-        ),
+        child: DefaultTextStyle(style: const TextStyle(),
+        child: Align(alignment: Alignment.center, child: widget))
       ),
       context: context,
     );
