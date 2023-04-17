@@ -29,24 +29,24 @@ class InstructionPageView extends PageWidget<InstructionPageViewModel> {
         case ConnectionStatus.connection:
           dialog = InstructionCard().setCard(
               context,
-              'Подключение к модулю.',
+              localizations.instructionPageConnection,
               'assets/images/connection_image.png',
               237,
-              'Не сворачивайте и не закрывайте приложение, подключение займет не более 30 секунд.',
+              localizations.instructionPageConnectionDesc,
               key: ConnectionStatus.connection.toString(),
               loading: true);
           break;
         case ConnectionStatus.entry:
           dialog = InstructionCard().setCard(
               context,
-              'Для подключения требуется пароль wi-fi сети.',
+              localizations.instructionPageEntry,
               'assets/images/entry_image.png',
               218,
-              'Подключаемый модуль будет работать в wi-fi сети, к которой Ваш телефон подключен в текущий момент и к которой у Вас есть доступ.',
+              localizations.instructionPageEntryDesc,
               key: ConnectionStatus.entry.toString(),
-              cancelButtonName: 'Отмена',
+              cancelButtonName: localizations.cancel,
               onCancel: () => viewModel.onBackButton(),
-              confirmButtonName: 'Далее',
+              confirmButtonName: localizations.next,
               onConfirm: () => viewModel.savePassword(),
               onPassword: (password) =>
                   viewModel.routerParameters.password = password);
@@ -54,25 +54,25 @@ class InstructionPageView extends PageWidget<InstructionPageViewModel> {
         case ConnectionStatus.success:
           dialog = InstructionCard().setCard(
               context,
-              'Модуль успешно подключен.',
+              localizations.instructionPageSuccess,
               'assets/images/success_image.png',
               237,
-              'Далее Вы сможете изменить название и добавить описание.',
+              localizations.instructionPageSuccessDesc,
               key: ConnectionStatus.success.toString(),
-              confirmButtonName: 'Ok',
+              confirmButtonName: localizations.ok,
               onConfirm: () => viewModel.onBackButton());
           break;
         default:
           dialog = InstructionCard().setCard(
               context,
-              'При подключении модуля произошла ошибка.',
+              localizations.instructionPageError,
               'assets/images/error_image.png',
               237,
-              viewModel.error?? 'Чтобы повторить подключение, удерживайте кнопку «Reset» в течение 2 секунд, пока световой индикатор не начнёт мигать жёлтым цветом. Затем нажмите кнопку "Повторить"',
+              viewModel.error?? localizations.instructionPageErrorDesc,
               key: ConnectionStatus.error.toString(),
-              cancelButtonName: 'Отмена',
+              cancelButtonName: localizations.cancel,
               onCancel: () => viewModel.onBackButton(),
-              confirmButtonName: 'Повторить',
+              confirmButtonName: localizations.repeat,
               onConfirm: () => viewModel
                   .changeConnectionStatus(ConnectionStatus.connection));
 

@@ -61,10 +61,10 @@ class S {
   }
 
   /// `Отмена`
-  String get cansel {
+  String get cancel {
     return Intl.message(
       'Отмена',
-      name: 'cansel',
+      name: 'cancel',
       desc: '',
       args: [],
     );
@@ -85,6 +85,56 @@ class S {
     return Intl.message(
       'Удалить',
       name: 'delete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Далее`
+  String get next {
+    return Intl.message(
+      'Далее',
+      name: 'next',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Повторить`
+  String get repeat {
+    return Intl.message(
+      'Повторить',
+      name: 'repeat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Пропустить`
+  String get skip {
+    return Intl.message(
+      'Пропустить',
+      name: 'skip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Подключить`
+  String get connect {
+    return Intl.message(
+      'Подключить',
+      name: 'connect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Назад`
+  String get back {
+    return Intl.message(
+      'Назад',
+      name: 'back',
       desc: '',
       args: [],
     );
@@ -355,6 +405,176 @@ class S {
     return Intl.message(
       'Вы уверены, что хотите удалить модуль?',
       name: 'detailPageDeleteModuleDialog',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Убедитесь, что Ваш телефон подключен в wi-fi сети.`
+  String get instructionPageWiFi {
+    return Intl.message(
+      'Убедитесь, что Ваш телефон подключен в wi-fi сети.',
+      name: 'instructionPageWiFi',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Подключаемый модуль будет работать в wi-fi сети, к которой Ваш телефон подключен в текущий момент и к которой у Вас есть доступ.`
+  String get instructionPageWiFiDesc {
+    return Intl.message(
+      'Подключаемый модуль будет работать в wi-fi сети, к которой Ваш телефон подключен в текущий момент и к которой у Вас есть доступ.',
+      name: 'instructionPageWiFiDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Подключите модуль к сети питания.`
+  String get instructionPagePower {
+    return Intl.message(
+      'Подключите модуль к сети питания.',
+      name: 'instructionPagePower',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Если модулей несколько, то производить подключение необходимо строго по-одному.`
+  String get instructionPagePowerDesc {
+    return Intl.message(
+      'Если модулей несколько, то производить подключение необходимо строго по-одному.',
+      name: 'instructionPagePowerDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Удерживайте кнопку «Reset» в течение 2 секунд.`
+  String get instructionPageReset {
+    return Intl.message(
+      'Удерживайте кнопку «Reset» в течение 2 секунд.',
+      name: 'instructionPageReset',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `В режиме подключения световой индикатор начнёт мигать жёлтым цветом.`
+  String get instructionPageResetDesc {
+    return Intl.message(
+      'В режиме подключения световой индикатор начнёт мигать жёлтым цветом.',
+      name: 'instructionPageResetDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Подключение к модулю.`
+  String get instructionPageConnection {
+    return Intl.message(
+      'Подключение к модулю.',
+      name: 'instructionPageConnection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Не сворачивайте и не закрывайте приложение, подключение займет не более 30 секунд.`
+  String get instructionPageConnectionDesc {
+    return Intl.message(
+      'Не сворачивайте и не закрывайте приложение, подключение займет не более 30 секунд.',
+      name: 'instructionPageConnectionDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Для подключения требуется пароль wi-fi сети.`
+  String get instructionPageEntry {
+    return Intl.message(
+      'Для подключения требуется пароль wi-fi сети.',
+      name: 'instructionPageEntry',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Введите пароль`
+  String get instructionPageEntryPlaceholder {
+    return Intl.message(
+      'Введите пароль',
+      name: 'instructionPageEntryPlaceholder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Подключаемый модуль будет работать в wi-fi сети, к которой Ваш телефон подключен в текущий момент и к которой у Вас есть доступ.`
+  String get instructionPageEntryDesc {
+    return Intl.message(
+      'Подключаемый модуль будет работать в wi-fi сети, к которой Ваш телефон подключен в текущий момент и к которой у Вас есть доступ.',
+      name: 'instructionPageEntryDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Модуль успешно подключен.`
+  String get instructionPageSuccess {
+    return Intl.message(
+      'Модуль успешно подключен.',
+      name: 'instructionPageSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Далее Вы сможете изменить название и добавить описание.`
+  String get instructionPageSuccessDesc {
+    return Intl.message(
+      'Далее Вы сможете изменить название и добавить описание.',
+      name: 'instructionPageSuccessDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `При подключении модуля произошла ошибка.`
+  String get instructionPageError {
+    return Intl.message(
+      'При подключении модуля произошла ошибка.',
+      name: 'instructionPageError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Чтобы повторить подключение, удерживайте кнопку «Reset» в течение 2 секунд, пока световой индикатор не начнёт мигать жёлтым цветом. Затем нажмите кнопку "Повторить"`
+  String get instructionPageErrorDesc {
+    return Intl.message(
+      'Чтобы повторить подключение, удерживайте кнопку «Reset» в течение 2 секунд, пока световой индикатор не начнёт мигать жёлтым цветом. Затем нажмите кнопку "Повторить"',
+      name: 'instructionPageErrorDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Для подключения модуля приложению требуется доступ к местоположению.`
+  String get instructionPageErrorLocalPermissions {
+    return Intl.message(
+      'Для подключения модуля приложению требуется доступ к местоположению.',
+      name: 'instructionPageErrorLocalPermissions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Убедитесь, что Ваше устройсво подключено к сети wi-fi.`
+  String get instructionPageErrorWiFi {
+    return Intl.message(
+      'Убедитесь, что Ваше устройсво подключено к сети wi-fi.',
+      name: 'instructionPageErrorWiFi',
       desc: '',
       args: [],
     );

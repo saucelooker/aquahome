@@ -155,7 +155,7 @@ class _RangeTimeDialogState extends State<RangeTimeDialog> {
                   alignment: Alignment.bottomLeft,
                   child: ConfirmButton(
                     onTap: () => navService.goBack(null),
-                    text: widget.cancelButton ?? localization.cansel,
+                    text: widget.cancelButton ?? localization.cancel,
                     isConfirmButton: false,
                   ),
                 ),

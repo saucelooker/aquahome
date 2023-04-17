@@ -2,6 +2,7 @@ import 'package:aquahome_app/controls/loading_points.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../controls/confirm_button.dart';
+import '../../generated/l10n.dart';
 import '../../style/fonts.dart';
 import '../../style/theme_colors.dart';
 
@@ -136,7 +137,7 @@ class InstructionCard {
                                 borderSide: BorderSide(
                                     width: 1,
                                     color: themeColors.primaryBackgroundColor)),
-                            hintText: 'Введите пароль',
+                            hintText: S.of(context).instructionPageEntryPlaceholder,
                             hintStyle: TextStyle(
                                 color: themeColors.secondaryTextColor,
                                 fontFamily: textLight,

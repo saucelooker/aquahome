@@ -1,8 +1,13 @@
 {
   "save": "Save",
-  "cansel": "Cansel",
+  "cancel": "Cancel",
   "ok": "Ok",
   "delete": "Delete",
+  "next": "Next",
+  "repeat": "Repeat",
+  "skip": "Skip",
+  "connect": "Connect",
+  "back": "Back",
 
   "mainPageEmpty": "No modules available",
   "mainPageAdd": "Add",
@@ -33,5 +38,24 @@
   "detailPageTimeOn": "Turn-on\ntime\n\n",
   "detailPageTimeOff": "Turn-off\ntime\n\n",
   "detailPageDeleteScheduleDialog": "Are you sure you want to remove the time from the schedule?",
-  "detailPageDeleteModuleDialog": "Are you sure you want to remove the module?"
+  "detailPageDeleteModuleDialog": "Are you sure you want to remove the module?",
+
+  "instructionPageWiFi": "Make sure your phone is connected to a wi-fi network.",
+  "instructionPageWiFiDesc": "The plug-in will work on the wi-fi network to which your phone is currently connected and to which you have access.",
+  "instructionPagePower": "Connect the module to the power supply.",
+  "instructionPagePowerDesc": "If there are several modules, then it is necessary to connect strictly one by one.",
+  "instructionPageReset": "Hold the \"Reset\" button for 2 seconds.",
+  "instructionPageResetDesc": "In connection mode, the indicator light will flash yellow.",
+  "instructionPageConnection": "Connection to the module.",
+  "instructionPageConnectionDesc": "Do not minimize or close the application, the connection will take no more than 30 seconds.",
+  "instructionPageEntry": "A Wi-Fi network password is required to connect.",
+  "instructionPageEntryPlaceholder": "Enter password",
+  "instructionPageEntryDesc": "The plug-in will work on the wi-fi network to which your phone is currently connected and to which you have access.",
+  "instructionPageSuccess": "The module has been successfully connected.",
+  "instructionPageSuccessDesc": "Then you can change the title and add a description.",
+  "instructionPageError": "An error occurred while connecting the module.",
+  "instructionPageErrorDesc": "To reconnect, hold down the Reset button for 2 seconds until the indicator light starts flashing yellow. Then click the \"Retry\" button",
+  "instructionPageErrorLocalPermissions": "To connect the module, the application needs access to the location.",
+  "instructionPageErrorWiFi": "Make sure your device is connected to a wi-fi network."
+
 }

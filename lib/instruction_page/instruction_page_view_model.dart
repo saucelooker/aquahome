@@ -4,7 +4,6 @@ import 'package:esptouch_flutter/esptouch_flutter.dart';
 import 'package:flutter/services.dart';
 import 'package:network_info_plus/network_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
-
 import '../dependency_initializer.dart';
 import '../main_page/model/light_control_model.dart';
 import '../main_page/model/router_parameters.dart';
@@ -92,17 +91,15 @@ class InstructionPageViewModel extends BaseBl {
             changeConnectionStatus(ConnectionStatus.error);
           }
         } else {
-          error =
-              '\nДля подключения модуля приложению требуется доступ к местоположению.';
+          error = locale.instructionPageErrorLocalPermissions;
           changeConnectionStatus(ConnectionStatus.error);
         }
       } else {
-        error =
-            '\nДля подключения модуля приложению требуется доступ к местоположению.';
+        error = locale.instructionPageErrorLocalPermissions;
         changeConnectionStatus(ConnectionStatus.error);
       }
     } on TypeError {
-      error = '\nУбедитесь, что Ваше устройсво подключено к сети wi-fi.';
+      error = locale.instructionPageErrorWiFi;
       changeConnectionStatus(ConnectionStatus.error);
     } catch (e) {
       changeConnectionStatus(ConnectionStatus.error);

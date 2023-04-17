@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import '../../generated/l10n.dart';
 import '../../style/theme_colors.dart';
 import 'instruction_card.dart';
 
@@ -24,6 +25,7 @@ class _InstructionCarouselState extends State<InstructionCarousel> {
   @override
   Widget build(BuildContext context) {
     final ThemeColors themeColors = Theme.of(context).extension<ThemeColors>()!;
+    final localization = S.of(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -32,35 +34,35 @@ class _InstructionCarouselState extends State<InstructionCarousel> {
             items: [
               InstructionCard().setCard(
                   context,
-                  'Убедитесь, что Ваш телефон подключен в wi-fi сети.',
+                  localization.instructionPageWiFi,
                   'assets/images/connect_to_wifi_image.png',
                   218,
-                  'Подключаемый модуль будет работать в wi-fi сети, к которой Ваш телефон подключен в текущий момент и к которой у Вас есть доступ.',
-                  confirmButtonName: 'Далее',
-                  cancelButtonName: 'Пропустить',
+                  localization.instructionPageWiFiDesc,
+                  confirmButtonName: localization.next,
+                  cancelButtonName: localization.skip,
                   onCancel: () => widget.onConnection(),
                   onConfirm: () =>
                       controller.nextPage(duration: duration, curve: curve)),
               InstructionCard().setCard(
                   context,
-                  'Подключите модуль к сети питания.',
+                  localization.instructionPagePower,
                   'assets/images/connect_to_power_image.png',
                   251,
-                  'Если модулей несколько, то производить подключение необходимо строго по-одному.',
-                  confirmButtonName: 'Далее',
-                  cancelButtonName: 'Назад',
+                  localization.instructionPagePowerDesc,
+                  confirmButtonName: localization.next,
+                  cancelButtonName: localization.back,
                   onCancel: () =>
                       controller.previousPage(duration: duration, curve: curve),
                   onConfirm: () =>
                       controller.nextPage(duration: duration, curve: curve)),
               InstructionCard().setCard(
                 context,
-                'Удерживайте кнопку «Reset» в течение 2 секунд.',
+                localization.instructionPageReset,
                 'assets/images/reset_image.png',
                 189,
-                'В режиме подключения световой индикатор начнёт мигать жёлтым цветом.',
-                confirmButtonName: 'Подключить',
-                cancelButtonName: 'Назад',
+                localization.instructionPageResetDesc,
+                confirmButtonName: localization.connect,
+                cancelButtonName: localization.back,
                 onCancel: () =>
                     controller.previousPage(duration: duration, curve: curve),
                 onConfirm: () => widget.onConnection(),

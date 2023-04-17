@@ -1,8 +1,13 @@
 {
   "save": "Сохранить",
-  "cansel": "Отмена",
+  "cancel": "Отмена",
   "ok": "Ok",
   "delete": "Удалить",
+  "next": "Далее",
+  "repeat": "Повторить",
+  "skip": "Пропустить",
+  "connect": "Подключить",
+  "back": "Назад",
 
   "mainPageEmpty": "Нет доступных модулей",
   "mainPageAdd": "Добавить",
@@ -32,5 +37,23 @@
   "detailPageTimeOn": "Время\nвключения\n\n",
   "detailPageTimeOff": "Время\nвыключения\n\n",
   "detailPageDeleteScheduleDialog": "Вы уверены, что хотите удалить время из расписания?",
-  "detailPageDeleteModuleDialog": "Вы уверены, что хотите удалить модуль?"
+  "detailPageDeleteModuleDialog": "Вы уверены, что хотите удалить модуль?",
+
+  "instructionPageWiFi": "Убедитесь, что Ваш телефон подключен в wi-fi сети.",
+  "instructionPageWiFiDesc": "Подключаемый модуль будет работать в wi-fi сети, к которой Ваш телефон подключен в текущий момент и к которой у Вас есть доступ.",
+  "instructionPagePower": "Подключите модуль к сети питания.",
+  "instructionPagePowerDesc": "Если модулей несколько, то производить подключение необходимо строго по-одному.",
+  "instructionPageReset": "Удерживайте кнопку «Reset» в течение 2 секунд.",
+  "instructionPageResetDesc": "В режиме подключения световой индикатор начнёт мигать жёлтым цветом.",
+  "instructionPageConnection": "Подключение к модулю.",
+  "instructionPageConnectionDesc": "Не сворачивайте и не закрывайте приложение, подключение займет не более 30 секунд.",
+  "instructionPageEntry": "Для подключения требуется пароль wi-fi сети.",
+  "instructionPageEntryPlaceholder": "Введите пароль",
+  "instructionPageEntryDesc": "Подключаемый модуль будет работать в wi-fi сети, к которой Ваш телефон подключен в текущий момент и к которой у Вас есть доступ.",
+  "instructionPageSuccess": "Модуль успешно подключен.",
+  "instructionPageSuccessDesc": "Далее Вы сможете изменить название и добавить описание.",
+  "instructionPageError": "При подключении модуля произошла ошибка.",
+  "instructionPageErrorDesc": "Чтобы повторить подключение, удерживайте кнопку «Reset» в течение 2 секунд, пока световой индикатор не начнёт мигать жёлтым цветом. Затем нажмите кнопку \"Повторить\"",
+  "instructionPageErrorLocalPermissions": "Для подключения модуля приложению требуется доступ к местоположению.",
+  "instructionPageErrorWiFi": "Убедитесь, что Ваше устройсво подключено к сети wi-fi."
 }
