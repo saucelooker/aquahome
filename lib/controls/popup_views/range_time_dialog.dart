@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:time_range_picker/time_range_picker.dart';
 
 import '../../dependency_initializer.dart';
+import '../../generated/l10n.dart';
 import '../../style/fonts.dart';
 import '../../style/theme_colors.dart';
 import '../confirm_button.dart';
@@ -45,6 +46,7 @@ class _RangeTimeDialogState extends State<RangeTimeDialog> {
   @override
   Widget build(BuildContext context) {
     final ThemeColors themeColors = Theme.of(context).extension<ThemeColors>()!;
+    final localization = S.of(context);
     final navService = serviceLocator<NavigationService>();
 
     return Padding(
@@ -68,7 +70,7 @@ class _RangeTimeDialogState extends State<RangeTimeDialog> {
                     textAlign: TextAlign.center,
                     text: TextSpan(children: [
                       TextSpan(
-                        text: 'Время\nвключения\n\n',
+                        text: localization.detailPageTimeOn,
                         style: TextStyle(
                             height: 0.8,
                             fontSize: 12,
@@ -92,7 +94,7 @@ class _RangeTimeDialogState extends State<RangeTimeDialog> {
                     textAlign: TextAlign.center,
                     text: TextSpan(children: [
                       TextSpan(
-                        text: 'Время\nвыключения\n\n',
+                        text: localization.detailPageTimeOff,
                         style: TextStyle(
                             height: 0.8,
                             fontSize: 12,
@@ -153,7 +155,7 @@ class _RangeTimeDialogState extends State<RangeTimeDialog> {
                   alignment: Alignment.bottomLeft,
                   child: ConfirmButton(
                     onTap: () => navService.goBack(null),
-                    text: widget.cancelButton ?? 'Отмена',
+                    text: widget.cancelButton ?? localization.cansel,
                     isConfirmButton: false,
                   ),
                 ),
@@ -161,7 +163,7 @@ class _RangeTimeDialogState extends State<RangeTimeDialog> {
                   alignment: Alignment.bottomRight,
                   child: ConfirmButton(
                       onTap: () => navService.goBack([_startTime, _endTime]),
-                      text: widget.okButton ?? 'Ok',
+                      text: widget.okButton ?? localization.ok,
                       textColor: themeColors.primaryTextColor),
                 ),
               ],

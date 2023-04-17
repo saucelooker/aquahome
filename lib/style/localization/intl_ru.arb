@@ -1,0 +1,36 @@
+{
+  "save": "Сохранить",
+  "cansel": "Отмена",
+  "ok": "Ok",
+  "delete": "Удалить",
+
+  "mainPageEmpty": "Нет доступных модулей",
+  "mainPageAdd": "Добавить",
+  "mainPageAddPopup": "Добавить модуль",
+  "mainPageSettingsPopup": "Настройки",
+
+  "settingsPageTitle": "Настройки",
+  "settingsPagePasswordTitle": "Пароль wi-fi",
+  "settingsPagePasswordPlaceholder": "Введите пароль wi-fi",
+  "settingsPageThemeTitle": "Тема",
+  "settingsPageLightTheme": "Светлая",
+  "settingsPageDarkTheme": "Темная",
+  "settingsPageSystemTheme": "Системная",
+  "settingsPageLanguageTitle": "Язык",
+  "settingsPageRussianLanguage": "Русский",
+  "settingsPageEnglishLanguage": "English",
+
+  "detailPageModuleTitle": "Название",
+  "detailPageModulePlaceholder": "Введите название",
+  "detailPageDescription": "Краткое описание",
+  "detailPageDescriptionPlaceholder": "Заполните описание",
+  "detailPageMode": "Режим",
+  "detailPageGradientMode": "Градиент",
+  "detailPageTemperatureMode": "Температура",
+  "detailPageIntensity": "Яркость",
+  "detailPageSchedule": "Расписание",
+  "detailPageTimeOn": "Время\nвключения\n\n",
+  "detailPageTimeOff": "Время\nвыключения\n\n",
+  "detailPageDeleteScheduleDialog": "Вы уверены, что хотите удалить время из расписания?",
+  "detailPageDeleteModuleDialog": "Вы уверены, что хотите удалить модуль?"
+}

@@ -13,6 +13,7 @@ import 'package:provider/provider.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 import '../../controls/action_button.dart';
 import '../../controls/text_field_with_title.dart';
+import '../../generated/l10n.dart';
 import '../../style/constants.dart';
 import '../../style/fonts.dart';
 import '../../style/theme_colors.dart';
@@ -23,7 +24,7 @@ class DetailPageView extends PageWidget<DetailPageViewModel> {
 
   @override
   Widget build(BuildContext context, DetailPageViewModel viewModel,
-      ThemeColors themeColors) {
+      ThemeColors themeColors, S localizations) {
     return SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Padding(
@@ -32,25 +33,25 @@ class DetailPageView extends PageWidget<DetailPageViewModel> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               TextFieldWithTitle(
-                  title: 'Название',
-                  placeholder: 'Введите название',
+                  title: localizations.detailPageModuleTitle,
+                  placeholder: localizations.detailPageModulePlaceholder,
                   initValue: viewModel.model.title,
                   onChange: (value) => viewModel.title = value),
               const SizedBox(
-                height: 16,
+                height: 32,
               ),
               TextFieldWithTitle(
-                  title: 'Краткое описание',
-                  placeholder: 'Заполните описание',
+                  title: localizations.detailPageDescription,
+                  placeholder: localizations.detailPageDescriptionPlaceholder,
                   initValue: viewModel.model.subtitle,
                   onChange: (value) => viewModel.description = value),
               const SizedBox(
-                height: 16,
+                height: 32,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: Text(
-                  'Режим',
+                  localizations.detailPageMode,
                   style: TextStyle(
                       fontFamily: displayLight,
                       color: themeColors.secondaryTextColor,
@@ -94,7 +95,7 @@ class DetailPageView extends PageWidget<DetailPageViewModel> {
                               color: themeColors.secondaryTextColor,
                               fontFamily: textLight,
                               fontSize: 14),
-                          tabs: const [Text('Градиент'), Text('Температура')],
+                          tabs: [Text(localizations.detailPageGradientMode), Text(localizations.detailPageTemperatureMode)],
                         )),
                     const SizedBox(height: 8),
                     SizedBox(
@@ -116,12 +117,12 @@ class DetailPageView extends PageWidget<DetailPageViewModel> {
                 ),
               ),
               const SizedBox(
-                height: 16,
+                height: 32,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: Text(
-                  'Яркость',
+                  localizations.detailPageIntensity,
                   style: TextStyle(
                       fontFamily: displayLight,
                       color: themeColors.secondaryTextColor,
@@ -133,7 +134,7 @@ class DetailPageView extends PageWidget<DetailPageViewModel> {
               ),
               IntensitySlider(currentValue: viewModel.intensity),
               const SizedBox(
-                height: 16,
+                height: 32,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -141,7 +142,7 @@ class DetailPageView extends PageWidget<DetailPageViewModel> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Рассписание',
+                      localizations.detailPageSchedule,
                       style: TextStyle(
                           fontFamily: displayLight,
                           color: themeColors.secondaryTextColor,
@@ -243,7 +244,7 @@ class DetailPageView extends PageWidget<DetailPageViewModel> {
                         ? themeColors.secondaryBackgroundColor
                         : themeColors.primaryBackgroundColor,
                   ),
-                  child: Text('Сохранить',
+                  child: Text(localizations.save,
                       maxLines: 1,
                       style: TextStyle(
                           fontSize: 14,
@@ -262,9 +263,8 @@ class DetailPageView extends PageWidget<DetailPageViewModel> {
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
-                    color: themeColors.secondaryBackgroundColor,
                   ),
-                  child: Text('Удалить модуль',
+                  child: Text(localizations.delete,
                       maxLines: 1,
                       style: TextStyle(
                           fontSize: 14,

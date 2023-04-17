@@ -5,14 +5,19 @@ import 'package:aquahome_app/repositories/lights_repository/storage_lights_repos
 import 'package:aquahome_app/services/navigation_service.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import '../../controls/popup_views/options_dialog.dart';
 import '../../dependency_initializer.dart';
+import '../../entities/light_control_entity.dart';
+import '../../generated/l10n.dart';
 import '../../request_helper.dart';
+import '../../routes.dart';
 import '../../services/api_service.dart';
 
 class MainPageViewModel extends BaseBl {
   final _navService = serviceLocator<NavigationService>();
   final _storageService = serviceLocator<StorageLightsRepository>();
+  List<LightControlModel> lightsCollection = [];
 
   MainPageViewModel() {
     synchronizationWithModules();
@@ -31,6 +36,21 @@ class MainPageViewModel extends BaseBl {
     notifyListeners();
   }
 
+  Future<void> addModule({bool longPress = false}) async {
+    if (longPress && kDebugMode) {
+      lightsCollection.insert(0,
+          LightControlModel(entity: LightControlEntity(id: '192.168.1.129')));
+      notifyListeners();
+      return;
+    }
+    var light = await navigationService.navigationTo(searchPageRoute);
+
+    if (light is LightControlModel) {
+      lightsCollection.add(light);
+      notifyListeners();
+    }
+  }
+
   sendMessage(LightControlModel light) async {
     light.isOn = !light.isOn;
     var result = await ApiService(Dio(), light.id)
@@ -46,7 +66,7 @@ class MainPageViewModel extends BaseBl {
 
   navigateToDetailPage(LightControlModel item) async {
     final result =
-        await _navService.navigationTo('/detail_page', navigationParams: item);
+        await _navService.navigationTo(detailPageRoute, navigationParams: item);
     if (result is String && result == 'delete') {
       deleteModule(item.id);
     } else if (result is LightControlModel) {
@@ -82,16 +102,13 @@ class MainPageViewModel extends BaseBl {
 
   showOptions() async {
     final result = await navigationService.showDialog(
-      const OptionsDialog(options: ['Добавить модуль', 'Настройки']));
+       OptionsDialog(options: [locale.mainPageAddPopup, locale.mainPageSettingsPopup]));
     if (result is String) {
-      switch (result) {
-        case 'Добавить модуль':
-          //_navService.navigationTo('/search_page');
-        addModule(longPress: true);
-          break;
-
-        default:
-          _navService.navigationTo("/settings_page");
+      if(result == locale.mainPageAddPopup){
+        _navService.navigationTo(searchPageRoute);
+      }
+      else{
+        _navService.navigationTo(settingPageRoute);
       }
     }
   }

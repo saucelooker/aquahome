@@ -1,10 +1,8 @@
 import 'package:aquahome_app/base/base_bl.dart';
 import 'package:flutter/material.dart';
-
 import '../../base/general_data.dart';
 import '../../dependency_initializer.dart';
 import '../../repositories/general_data_repository/storage_general_data_repository.dart';
-import '../../services/navigation_service.dart';
 
 class SettingsPageViewModel extends BaseBl {
   late String password;
@@ -25,11 +23,12 @@ class SettingsPageViewModel extends BaseBl {
     await _generalDataDb.saveLanguage(language);
     await _generalDataDb.saveTheme(theme);
     _generalData.changeTheme(theme);
+    _generalData.changeLanguage(language);
     onBackButton();
   }
 
   setLanguage(int tab) {
-    language = tab == 0 ? 'RU' : 'EN';
+    language = tab == 0 ? 'ru' : 'en';
   }
 
   setTheme(int tab) {

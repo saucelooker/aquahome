@@ -1,5 +1,4 @@
 import 'package:aquahome_app/entities/light_control_entity.dart';
-import 'package:aquahome_app/main_page/model/light_control_model.dart';
 import 'package:json_store/json_store.dart';
 
 import 'i_lights_repository.dart';

@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
+import '../generated/l10n.dart';
 import '../style/theme_colors.dart';
 import 'instruction_page_view_model.dart';
 import 'instruction_slides/instruction_card.dart';
@@ -14,7 +15,7 @@ class InstructionPageView extends PageWidget<InstructionPageViewModel> {
 
   @override
   Widget build(BuildContext context, InstructionPageViewModel viewModel,
-      ThemeColors themeColors) {
+      ThemeColors themeColors, S localizations) {
     return Consumer<InstructionPageViewModel>(
         builder: (context, viewModel, child) {
       final Widget dialog;

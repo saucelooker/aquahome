@@ -1,0 +1,37 @@
+{
+  "save": "Save",
+  "cansel": "Cansel",
+  "ok": "Ok",
+  "delete": "Delete",
+
+  "mainPageEmpty": "No modules available",
+  "mainPageAdd": "Add",
+  "mainPageAddPopup": "Add module",
+  "mainPageSettingsPopup": "Settings",
+
+  "settingsPageTitle": "Settings",
+  "settingsPagePasswordTitle": "Wi-fi password",
+  "settingsPagePasswordPlaceholder": "Enter wifi password",
+  "settingsPageThemeTitle": "Theme",
+  "settingsPageLightTheme": "Light",
+  "settingsPageDarkTheme": "Dark",
+  "settingsPageSystemTheme": "System",
+  "settingsPageLanguageTitle": "Language",
+  "settingsPageRussianLanguage": "Русский",
+  "settingsPageEnglishLanguage": "English",
+
+
+  "detailPageModuleTitle": "Title",
+  "detailPageModulePlaceholder": "Enter the title",
+  "detailPageDescription": "Short description",
+  "detailPageDescriptionPlaceholder": "Fill in the description",
+  "detailPageMode": "Mode",
+  "detailPageGradientMode": "Gradient",
+  "detailPageTemperatureMode": "Temperature",
+  "detailPageIntensity": "Intensity",
+  "detailPageSchedule": "Schedule",
+  "detailPageTimeOn": "Turn-on\ntime\n\n",
+  "detailPageTimeOff": "Turn-off\ntime\n\n",
+  "detailPageDeleteScheduleDialog": "Are you sure you want to remove the time from the schedule?",
+  "detailPageDeleteModuleDialog": "Are you sure you want to remove the module?"
+}

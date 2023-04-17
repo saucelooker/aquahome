@@ -1,13 +1,16 @@
 import 'package:aquahome_app/base/page_widget.dart';
+import 'package:aquahome_app/routes.dart';
 import 'package:aquahome_app/services/navigation_service.dart';
 import 'package:aquahome_app/settings_page/views/settings_page_view.dart';
 import 'package:aquahome_app/splash/splash_page_view.dart';
 import 'package:aquahome_app/style/theme_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'base/general_data.dart';
 import 'datail_page/views/detail_page_view.dart';
 import 'dependency_initializer.dart';
+import 'generated/l10n.dart';
 import 'instruction_page/instruction_page_view.dart';
 import 'main_page/views/main_page_view.dart';
 
@@ -30,6 +33,14 @@ class MyApp extends StatelessWidget {
         value: serviceLocator<GeneralData>(),
         child: Consumer<GeneralData>(
             builder: (context, generalData, widget) => MaterialApp(
+                  localizationsDelegates: const [
+                    S.delegate,
+                    GlobalMaterialLocalizations.delegate,
+                    GlobalWidgetsLocalizations.delegate,
+                    GlobalCupertinoLocalizations.delegate,
+                  ],
+                  supportedLocales: S.delegate.supportedLocales,
+                  locale: serviceLocator<GeneralData>().getCurrentLocale(),
                   theme: ThemeData(
                       extensions: <ThemeExtension<dynamic>>[lightTheme]),
                   darkTheme: ThemeData(
@@ -39,13 +50,13 @@ class MyApp extends StatelessWidget {
                       serviceLocator<NavigationService>().navigatorKey,
                   home: const SplashPageView(),
                   onGenerateRoute: (settings) {
-                    if (settings.name == "/detail_page") {
+                    if (settings.name == detailPageRoute) {
                       return slideRouting(settings, DetailPageView());
-                    } else if (settings.name == "/search_page") {
+                    } else if (settings.name == searchPageRoute) {
                       return slideRouting(
-                          settings, InstructionPageView());
-                    } else if (settings.name == "/settings_page") {
-                      return slideRouting(settings, SettingsPageView());
+                          settings, const InstructionPageView());
+                    } else if (settings.name == settingPageRoute) {
+                      return slideRouting(settings, const SettingsPageView());
                     }
                     return fadeRouting(settings, const MainPageView());
                   },
@@ -57,41 +68,18 @@ class MyApp extends StatelessWidget {
         transitionDuration: const Duration(milliseconds: 400),
         settings: settings,
         pageBuilder: (c, a, an) => view,
-        transitionsBuilder: (context, animation, an, child) {
-          // final inAnimation = Tween<Offset>(
-          //     begin: const Offset(1.0, 0.0),
-          //     end: const Offset(0.0, 0.0))
-          //     .animate(animation);
-          // final outAnimation = Tween<Offset>(
-          //     begin: const Offset(-1.0, 0.0),
-          //     end: const Offset(0.0, 0.0))
-          //     .animate(animation);
-          //
-          // if (child.key == key) {
-          //   return SlideTransition(
-          //     position: inAnimation,
-          //     child: child,
-          //   );
-          // } else {
-          //   return SlideTransition(
-          //     position: outAnimation,
-          //     child: child,
-          //   );
-          // }
-
-          return SlideTransition(
-                position: Tween(
-                        begin: const Offset(1.0, 0.0),
-                        end: const Offset(0.0, 0.0))
-                    .animate(
-                  CurvedAnimation(
-                    parent: animation,
-                    curve: Curves.easeInOutCubic,
-                  ),
+        transitionsBuilder: (context, animation, an, child) => SlideTransition(
+              position: Tween(
+                      begin: const Offset(1.0, 0.0),
+                      end: const Offset(0.0, 0.0))
+                  .animate(
+                CurvedAnimation(
+                  parent: animation,
+                  curve: Curves.easeInOutCubic,
                 ),
-                child: child,
-              );
-        });
+              ),
+              child: child,
+            ));
   }
 
   PageRouteBuilder fadeRouting(RouteSettings settings, Widget view) {

@@ -30,9 +30,6 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   network_info_plus: ^3.0.1
-  web_socket_channel: ^2.3.0
-  dart_ping: ^8.0.1
-  http: ^0.13.5
   permission_handler: ^10.2.0
   esptouch_flutter: ^1.1.0-androidv2
   flutter_slidable: ^2.0.0
@@ -46,18 +43,18 @@ dependencies:
   json_store: ^2.0.0
   retrofit_generator: ^4.2.0
   json_serializable: ^6.5.4
-  animations: ^2.0.7
   carousel_slider: ^4.2.1
   smooth_page_indicator: ^1.0.0+2
   flutter_sequence_animation: ^4.0.0
   flutter_native_splash: ^2.2.17
   hero_text: ^0.0.1
-  dropdown_button2: ^1.9.2
-  intl: ^0.18.0
+  intl: any
   time_range_picker: ^2.2.0
-  rive: ^0.10.2
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -69,6 +66,11 @@ dev_dependencies:
     sdk: flutter
   build_runner: ^2.3.1
   flutter_lints: ^2.0.0
+
+flutter_intl:
+  enabled: true
+  main_locale: ru
+  arb_dir: lib/style/localization
 
 flutter_native_splash:
   color_dark: "#111111"
@@ -86,6 +88,7 @@ flutter:
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
+  generate: true
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:

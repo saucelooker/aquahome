@@ -55,9 +55,9 @@ class DetailPageViewModel extends BaseBl {
   }
 
   deleteItem() async {
-    final result = await navigationService.showDialog(const ConfirmDialog(
-        message: 'Вы уверены, что хотите удалить модуль?',
-        okButton: 'Удалить'));
+    final result = await navigationService.showDialog(ConfirmDialog(
+        message: locale.detailPageDeleteModuleDialog,
+        okButton: locale.delete));
     if (result is bool && result == true) {
       //TODO: Сделать апи для скидывания модуля
       navigationService.goBack('delete');
@@ -93,9 +93,9 @@ class DetailPageViewModel extends BaseBl {
   }
 
   Future<bool> deleteWorkTime(WorkPeriodModel item) async {
-    final result = await navigationService.showDialog(const ConfirmDialog(
-        message: 'Вы уверены, что хотите удалить время из расписания?',
-        okButton: 'Удалить'));
+    final result = await navigationService.showDialog(ConfirmDialog(
+        message: locale.detailPageDeleteScheduleDialog,
+        okButton: locale.delete));
     if (result is bool && result == true) {
       schedule.remove(item);
       return true;

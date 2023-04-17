@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../dependency_initializer.dart';
+import '../generated/l10n.dart';
 import '../repositories/general_data_repository/storage_general_data_repository.dart';
 
 class GeneralData extends ChangeNotifier {
@@ -17,5 +18,14 @@ class GeneralData extends ChangeNotifier {
   changeTheme(ThemeMode newTheme){
     theme = newTheme;
     notifyListeners();
+  }
+
+  changeLanguage(String newLanguage){
+    language = newLanguage;
+    S.load(Locale(language));
+  }
+
+  Locale getCurrentLocale(){
+    return Locale(language);
   }
 }

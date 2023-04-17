@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import '../dependency_initializer.dart';
+import '../generated/l10n.dart';
 import '../style/fonts.dart';
 import '../style/theme_colors.dart';
 
@@ -12,7 +13,9 @@ abstract class PageWidget<T extends BaseBl> extends StatefulWidget {
     Key? key,
   }) : super(key: key);
 
-  Widget? build(BuildContext context, T viewModel, ThemeColors themeColors) => null;
+  Widget? build(BuildContext context, T viewModel, ThemeColors themeColors,
+      S localizations) =>
+      null;
 
   AppBarConfig appBarConfiguration(T viewModel) => AppBarConfig();
 
@@ -20,8 +23,7 @@ abstract class PageWidget<T extends BaseBl> extends StatefulWidget {
   State<PageWidget> createState() => PageWidgetState<T>();
 }
 
-class PageWidgetState<T extends BaseBl>
-    extends State<PageWidget<T>> {
+class PageWidgetState<T extends BaseBl> extends State<PageWidget<T>> {
   T viewModel = serviceLocator<T>();
 
   @mustCallSuper
@@ -49,10 +51,9 @@ class PageWidgetState<T extends BaseBl>
                       ? Brightness.light
                       : Brightness.dark,
               statusBarColor: themeColors.backgroundColor,
-              statusBarIconBrightness:
-                  themeColors.theme == ThemeMode.dark
-                      ? Brightness.light
-                      : Brightness.dark),
+              statusBarIconBrightness: themeColors.theme == ThemeMode.dark
+                  ? Brightness.light
+                  : Brightness.dark),
           backgroundColor: config.transparentBackground
               ? Colors.transparent
               : themeColors.backgroundColor,
@@ -95,7 +96,12 @@ class PageWidgetState<T extends BaseBl>
         body: SafeArea(
           top: false,
           child: ChangeNotifierProvider<T>.value(
-              value: viewModel, child: widget.build(context, viewModel, Theme.of(context).extension<ThemeColors>()!)),
+              value: viewModel,
+              child: widget.build(
+                  context,
+                  viewModel,
+                  Theme.of(context).extension<ThemeColors>()!,
+                  S.of(context))),
         ));
   }
 }

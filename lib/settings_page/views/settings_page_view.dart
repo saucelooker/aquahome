@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
+import '../../generated/l10n.dart';
 import '../../style/fonts.dart';
 import '../../style/theme_colors.dart';
 import '../view_models/settings_page_view_model.dart';
@@ -14,11 +15,11 @@ class SettingsPageView extends PageWidget<SettingsPageViewModel> {
 
   @override
   AppBarConfig appBarConfiguration(SettingsPageViewModel viewModel) {
-    return AppBarConfig(title: 'Настройки', showBackButton: true);
+    return AppBarConfig(title: viewModel.locale.settingsPageTitle, showBackButton: true);
   }
 
   int initLanguage(String language) {
-    return language == 'RU' ? 0 : 1;
+    return language == 'ru' ? 0 : 1;
   }
 
   int initTheme(ThemeMode theme) {
@@ -34,7 +35,7 @@ class SettingsPageView extends PageWidget<SettingsPageViewModel> {
 
   @override
   Widget build(BuildContext context, SettingsPageViewModel viewModel,
-      ThemeColors themeColors) {
+      ThemeColors themeColors, S localizations) {
     return SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Padding(
@@ -43,17 +44,17 @@ class SettingsPageView extends PageWidget<SettingsPageViewModel> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               TextFieldWithTitle(
-                  title: 'Пароль Wi-fi',
-                  placeholder: 'Введите пароль Wi-fi',
+                  title: localizations.settingsPagePasswordTitle,
+                  placeholder: localizations.settingsPagePasswordPlaceholder,
                   initValue: viewModel.password,
                   onChange: (value) => viewModel.password = value),
               const SizedBox(
-                height: 16,
+                height: 32,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: Text(
-                  'Тема',
+                  localizations.settingsPageThemeTitle,
                   style: TextStyle(
                       fontFamily: displayLight,
                       color: themeColors.secondaryTextColor,
@@ -95,22 +96,22 @@ class SettingsPageView extends PageWidget<SettingsPageViewModel> {
                               color: themeColors.secondaryTextColor,
                               fontFamily: textLight,
                               fontSize: 14),
-                          tabs: const [
-                            Text('Светлая'),
-                            Text('Темная'),
-                            Text('Системная')
+                          tabs: [
+                            Text(localizations.settingsPageLightTheme),
+                            Text(localizations.settingsPageDarkTheme),
+                            Text(localizations.settingsPageSystemTheme)
                           ],
                         )),
                   ],
                 ),
               ),
               const SizedBox(
-                height: 16,
+                height: 32,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: Text(
-                  'Язык',
+                  localizations.settingsPageLanguageTitle,
                   style: TextStyle(
                       fontFamily: displayLight,
                       color: themeColors.secondaryTextColor,
@@ -152,7 +153,7 @@ class SettingsPageView extends PageWidget<SettingsPageViewModel> {
                               color: themeColors.secondaryTextColor,
                               fontFamily: textLight,
                               fontSize: 14),
-                          tabs: const [Text('Русский'), Text('English')],
+                          tabs: [Text(localizations.settingsPageRussianLanguage), Text(localizations.settingsPageEnglishLanguage)],
                         )),
                   ],
                 ),
@@ -172,7 +173,7 @@ class SettingsPageView extends PageWidget<SettingsPageViewModel> {
                         ? themeColors.secondaryBackgroundColor
                         : themeColors.primaryBackgroundColor,
                   ),
-                  child: Text('Сохранить',
+                  child: Text(localizations.save,
                       maxLines: 1,
                       style: TextStyle(
                           fontSize: 14,

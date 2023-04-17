@@ -26,8 +26,8 @@ class StorageGeneralDataRepository {
     if (language?.containsKey(_languageKey) ?? false) {
       return language![_languageKey];
     } else {
-      await saveLanguage('RU');
-      return 'RU';
+      await saveLanguage('ru');
+      return 'ru';
     }
   }
 
