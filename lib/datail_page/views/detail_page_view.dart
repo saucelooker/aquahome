@@ -23,20 +23,22 @@ class DetailPageView extends PageWidget<DetailPageViewModel> {
   final GlobalKey<AnimatedListState> _key = GlobalKey();
 
   @override
-  Widget build(BuildContext context, DetailPageViewModel viewModel,
+  Widget buildWrapper(BuildContext context, DetailPageViewModel viewModel,
       ThemeColors themeColors, S localizations) {
     return SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
+        //physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               TextFieldWithTitle(
-                  title: localizations.detailPageModuleTitle,
-                  placeholder: localizations.detailPageModulePlaceholder,
-                  initValue: viewModel.model.title,
-                  onChange: (value) => viewModel.title = value),
+                title: localizations.detailPageModuleTitle,
+                placeholder: localizations.detailPageModulePlaceholder,
+                initValue: viewModel.model.title,
+                onChange: (value) => viewModel.title = value,
+                maxCharacters: 24,
+              ),
               const SizedBox(
                 height: 32,
               ),
@@ -44,7 +46,8 @@ class DetailPageView extends PageWidget<DetailPageViewModel> {
                   title: localizations.detailPageDescription,
                   placeholder: localizations.detailPageDescriptionPlaceholder,
                   initValue: viewModel.model.subtitle,
-                  onChange: (value) => viewModel.description = value),
+                  onChange: (value) => viewModel.description = value,
+                  maxCharacters: 72),
               const SizedBox(
                 height: 32,
               ),
@@ -69,7 +72,7 @@ class DetailPageView extends PageWidget<DetailPageViewModel> {
                   children: [
                     Container(
                         height: 38,
-                        padding: const EdgeInsets.all(4),
+                        padding: const EdgeInsets.all(2),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
                           color: themeColors.primaryBackgroundColor,
@@ -78,13 +81,13 @@ class DetailPageView extends PageWidget<DetailPageViewModel> {
                           onTap: (tab) => viewModel.colorMode = tab == 0
                               ? ColorMode.gradient
                               : ColorMode.temperature,
-                          splashBorderRadius: BorderRadius.circular(9),
+                          splashBorderRadius: BorderRadius.circular(10),
                           splashFactory: InkSparkle.splashFactory,
                           enableFeedback: true,
                           indicatorWeight: 0,
                           indicator: BoxDecoration(
                               color: themeColors.secondaryBackgroundColor,
-                              borderRadius: BorderRadius.circular(9)),
+                              borderRadius: BorderRadius.circular(10)),
                           labelColor: themeColors.primaryTextColor,
                           labelStyle: TextStyle(
                               color: themeColors.primaryTextColor,
@@ -95,7 +98,10 @@ class DetailPageView extends PageWidget<DetailPageViewModel> {
                               color: themeColors.secondaryTextColor,
                               fontFamily: textLight,
                               fontSize: 14),
-                          tabs: [Text(localizations.detailPageGradientMode), Text(localizations.detailPageTemperatureMode)],
+                          tabs: [
+                            Text(localizations.detailPageGradientMode),
+                            Text(localizations.detailPageTemperatureMode)
+                          ],
                         )),
                     const SizedBox(height: 8),
                     SizedBox(

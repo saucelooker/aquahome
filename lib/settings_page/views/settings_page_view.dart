@@ -34,7 +34,7 @@ class SettingsPageView extends PageWidget<SettingsPageViewModel> {
   }
 
   @override
-  Widget build(BuildContext context, SettingsPageViewModel viewModel,
+  Widget buildWrapper(BuildContext context, SettingsPageViewModel viewModel,
       ThemeColors themeColors, S localizations) {
     return SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
@@ -72,20 +72,20 @@ class SettingsPageView extends PageWidget<SettingsPageViewModel> {
                   children: [
                     Container(
                         height: 38,
-                        padding: const EdgeInsets.all(4),
+                        padding: const EdgeInsets.all(2),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
                           color: themeColors.primaryBackgroundColor,
                         ),
                         child: TabBar(
                           onTap: (tab) => viewModel.setTheme(tab),
-                          splashBorderRadius: BorderRadius.circular(9),
+                          splashBorderRadius: BorderRadius.circular(10),
                           splashFactory: InkSparkle.splashFactory,
                           enableFeedback: true,
                           indicatorWeight: 0,
                           indicator: BoxDecoration(
                               color: themeColors.secondaryBackgroundColor,
-                              borderRadius: BorderRadius.circular(9)),
+                              borderRadius: BorderRadius.circular(10)),
                           labelColor: themeColors.primaryTextColor,
                           labelStyle: TextStyle(
                               color: themeColors.primaryTextColor,
@@ -129,20 +129,20 @@ class SettingsPageView extends PageWidget<SettingsPageViewModel> {
                   children: [
                     Container(
                         height: 38,
-                        padding: const EdgeInsets.all(4),
+                        padding: const EdgeInsets.all(2),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
                           color: themeColors.primaryBackgroundColor,
                         ),
                         child: TabBar(
                           onTap: (tab) => viewModel.setLanguage(tab),
-                          splashBorderRadius: BorderRadius.circular(9),
+                          splashBorderRadius: BorderRadius.circular(10),
                           splashFactory: InkSparkle.splashFactory,
                           enableFeedback: true,
                           indicatorWeight: 0,
                           indicator: BoxDecoration(
                               color: themeColors.secondaryBackgroundColor,
-                              borderRadius: BorderRadius.circular(9)),
+                              borderRadius: BorderRadius.circular(10)),
                           labelColor: themeColors.primaryTextColor,
                           labelStyle: TextStyle(
                               color: themeColors.primaryTextColor,

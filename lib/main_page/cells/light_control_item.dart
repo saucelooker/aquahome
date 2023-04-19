@@ -1,4 +1,5 @@
 import 'package:aquahome_app/base/ref_type_wrapper.dart';
+import 'package:aquahome_app/controls/action_button.dart';
 import 'package:aquahome_app/main_page/model/light_control_model.dart';
 import 'package:flutter/material.dart';
 import '../../controls/rect_button.dart';
@@ -78,6 +79,7 @@ class _LightControlItemState extends State<LightControlItem> {
                                       fontSize: 18,
                                       color: themeColors.primaryTextColor),
                                 ),
+                                const SizedBox(height: 4),
                                 Visibility(
                                   visible: widget.model.subtitle.isNotEmpty,
                                   child: Text(
@@ -102,7 +104,7 @@ class _LightControlItemState extends State<LightControlItem> {
                     TemperatureSlider(
                         currentValue: widget.model.color,
                         onChangeValue: () => widget.onColor(),
-                        mode: widget.model.mode)
+                        mode: widget.model.mode),
                   ],
                 ),
               ),
@@ -112,7 +114,8 @@ class _LightControlItemState extends State<LightControlItem> {
               RotatedBox(
                   quarterTurns: -1,
                   child: IntensitySlider(
-                      currentValue: widget.model.intensity, onIntensity: widget.onIntensity)),
+                      currentValue: widget.model.intensity,
+                      onIntensity: widget.onIntensity)),
             ],
           ),
         ),

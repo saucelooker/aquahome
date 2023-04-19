@@ -33,13 +33,13 @@ class ActionButton extends StatelessWidget {
           icon: icon is String
               ? Image.asset(
                   icon,
-                  height: iconSize?.height ?? 27,
-                  width: iconSize?.width ?? 27,
+                  height: iconSize?.height ?? 28,
+                  width: iconSize?.width ?? 28,
                   color: iconColor?? themeColors.primaryTextColor,
                 )
               : Icon(
                   icon,
-                  size: iconSize?.height ?? 27,
+                  size: iconSize?.height ?? 28,
                   color: iconColor?? themeColors.primaryTextColor,
                 ),
           highlightColor: Colors.transparent,

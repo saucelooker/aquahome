@@ -13,8 +13,8 @@ abstract class PageWidget<T extends BaseBl> extends StatefulWidget {
     Key? key,
   }) : super(key: key);
 
-  Widget? build(BuildContext context, T viewModel, ThemeColors themeColors,
-      S localizations) =>
+  Widget? buildWrapper(BuildContext context, T viewModel,
+          ThemeColors themeColors, S localizations) =>
       null;
 
   AppBarConfig appBarConfiguration(T viewModel) => AppBarConfig();
@@ -25,6 +25,10 @@ abstract class PageWidget<T extends BaseBl> extends StatefulWidget {
 
 class PageWidgetState<T extends BaseBl> extends State<PageWidget<T>> {
   T viewModel = serviceLocator<T>();
+
+  Widget? buildWrapper(BuildContext context, T viewModel,
+          ThemeColors themeColors, S localizations) =>
+      null;
 
   @mustCallSuper
   @override
@@ -37,6 +41,7 @@ class PageWidgetState<T extends BaseBl> extends State<PageWidget<T>> {
   Widget build(BuildContext context) {
     final navigationParams = ModalRoute.of(context)!.settings.arguments;
     final themeColors = Theme.of(context).extension<ThemeColors>()!;
+    final localizations = S.of(context);
     if (navigationParams != null) {
       viewModel.init(navigationParams);
     }
@@ -97,11 +102,10 @@ class PageWidgetState<T extends BaseBl> extends State<PageWidget<T>> {
           top: false,
           child: ChangeNotifierProvider<T>.value(
               value: viewModel,
-              child: widget.build(
-                  context,
-                  viewModel,
-                  Theme.of(context).extension<ThemeColors>()!,
-                  S.of(context))),
+              child: buildWrapper(
+                      context, viewModel, themeColors, localizations) ??
+                  widget.buildWrapper(
+                      context, viewModel, themeColors, localizations)),
         ));
   }
 }

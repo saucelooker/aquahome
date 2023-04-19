@@ -100,7 +100,7 @@ var lightTheme = ThemeColors(
     secondaryTextColor: const Color(0xff1D1D1D).withOpacity(0.3),
     thirdTextColor: const Color(0xff1D1D1D).withOpacity(0.7),
     backgroundColor: const Color(0xffF5F5F5),
-    primaryBackgroundColor: const Color(0xffD3D3D3),
+    primaryBackgroundColor: const Color(0xffE3E3E3),
     secondaryBackgroundColor: const Color(0xffFFFFFF),
     notActiveColor: const Color(0xffAAAAAA),
     corralColor: const Color(0xffD65E5E),

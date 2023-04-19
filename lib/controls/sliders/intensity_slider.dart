@@ -30,7 +30,7 @@ class _IntensitySliderState extends State<IntensitySlider> {
     final ThemeColors themeColors = Theme.of(context).extension<ThemeColors>()!;
     return Container(
       alignment: Alignment.bottomLeft,
-      padding: const EdgeInsets.all(4),
+      padding: const EdgeInsets.all(2),
       height: 58,
       decoration: BoxDecoration(
           color: themeColors.primaryBackgroundColor,

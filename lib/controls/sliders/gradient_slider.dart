@@ -79,24 +79,23 @@ class _TemperatureSliderState extends State<TemperatureSlider> {
   Widget build(BuildContext context) {
     final ThemeColors themeColors = Theme.of(context).extension<ThemeColors>()!;
     return Container(
-      alignment: Alignment.bottomLeft,
-      padding: const EdgeInsets.all(4),
+      alignment: Alignment.center,
+      padding: const EdgeInsets.all(2),
       height: 58,
       decoration: BoxDecoration(
           color: themeColors.primaryBackgroundColor,
           borderRadius: BorderRadius.circular(12)),
       child: Container(
-        height: 50,
+        height: 54,
         decoration: BoxDecoration(
             color: themeColors.secondaryBackgroundColor,
-            borderRadius: BorderRadius.circular(9)),
+            borderRadius: BorderRadius.circular(10)),
         child: SliderTheme(
           data: SliderTheme.of(context).copyWith(
             showValueIndicator: ShowValueIndicator.always,
             trackShape: RectTrackMarkShape(gradient: gradientListWithStops(themeColors)),
             overlayColor: Colors.transparent,
-            thumbShape: RectThumbShape(
-                thumbRadius: 7, color: themeColors.primaryBackgroundColor),
+            thumbShape: RectThumbShape( color: themeColors.primaryBackgroundColor),
             valueIndicatorShape: RectValueIndicatorShape(
                 color: widget.currentValue.color, show: access),
             tickMarkShape: const RectTickMarkShape(

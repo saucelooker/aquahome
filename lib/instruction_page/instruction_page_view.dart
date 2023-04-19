@@ -14,7 +14,7 @@ class InstructionPageView extends PageWidget<InstructionPageViewModel> {
   const InstructionPageView({super.key});
 
   @override
-  Widget build(BuildContext context, InstructionPageViewModel viewModel,
+  Widget buildWrapper(BuildContext context, InstructionPageViewModel viewModel,
       ThemeColors themeColors, S localizations) {
     return Consumer<InstructionPageViewModel>(
         builder: (context, viewModel, child) {

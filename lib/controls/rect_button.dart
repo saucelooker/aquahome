@@ -64,14 +64,14 @@ class _RectButtonState extends State<RectButton> {
             child: widget.switchButton
                 ? Container(
                     padding: const EdgeInsets.all(4),
-                    height: 50,
-                    width: 50,
+                    height: 54,
+                    width: 54,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                         color: widget.buttonColor ??
                             themeColors.secondaryBackgroundColor,
                         borderRadius:
-                            const BorderRadius.all(Radius.circular(9))),
+                            const BorderRadius.all(Radius.circular(10))),
                     child: AnimatedSwitcher(
                       duration: const Duration(milliseconds: fadeAnimationTime),
                       child: Image.asset(

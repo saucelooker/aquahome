@@ -6,6 +6,7 @@ import 'package:aquahome_app/controls/sliders/gradient_slider.dart';
 import 'package:aquahome_app/dependency_initializer.dart';
 import 'package:aquahome_app/services/navigation_service.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../../controls/popup_views/confirm_dialog.dart';
 import '../../controls/popup_views/range_time_dialog.dart';
@@ -56,8 +57,7 @@ class DetailPageViewModel extends BaseBl {
 
   deleteItem() async {
     final result = await navigationService.showDialog(ConfirmDialog(
-        message: locale.detailPageDeleteModuleDialog,
-        okButton: locale.delete));
+        message: locale.detailPageDeleteModuleDialog, okButton: locale.delete));
     if (result is bool && result == true) {
       //TODO: Сделать апи для скидывания модуля
       navigationService.goBack('delete');
@@ -115,6 +115,10 @@ class DetailPageViewModel extends BaseBl {
     model.color = colorValue;
     model.intensity = intensity;
 
+    if (kDebugMode) {
+      navigationService.goBack(model);
+      return;
+    }
     var result = await ApiService(Dio(), model.id)
         .modeControl(model.mode == ColorMode.gradient ? '0' : '1')
         .catchError((e) => RestHelper.errorHandler(e));

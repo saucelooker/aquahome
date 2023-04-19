@@ -11,12 +11,12 @@ class RectThumbShape implements SliderComponentShape {
   final double height;
 
   const RectThumbShape(
-      {this.thumbRadius = 7,
+      {this.thumbRadius = 8,
       required this.color,
       this.min = 0,
       this.max = 10,
       this.width = 18,
-      this.height = 46});
+      this.height = 50});
 
   @override
   Size getPreferredSize(bool isEnabled, bool isDiscrete,
@@ -60,12 +60,12 @@ class RectValueIndicatorShape implements SliderComponentShape {
   final bool show;
 
   const RectValueIndicatorShape(
-      {this.thumbRadius = 5,
+      {this.thumbRadius = 6,
       required this.color,
       this.min = 0,
       this.max = 10,
       this.width = 18,
-      this.height = 46,
+      this.height = 50,
       this.show = true});
 
   @override
@@ -98,9 +98,9 @@ class RectValueIndicatorShape implements SliderComponentShape {
 
     final rRect = RRect.fromRectAndRadius(
         Rect.fromCenter(
-            center: Offset(center.dx, center.dy - 10),
+            center: Offset(center.dx, center.dy),
             width: width - 4,
-            height: height - 24),
+            height: height - 4),
         Radius.circular(thumbRadius));
 
     canvas.drawRRect(rRect, paint);
@@ -164,7 +164,7 @@ class RectTrackMarkShape implements RoundedRectSliderTrackShape {
       {this.activeColor = Colors.transparent,
       this.inactiveColor = Colors.transparent,
       this.width = 2,
-      this.height = 50,
+      this.height = 54,
       this.gradient});
 
   @override
@@ -225,33 +225,33 @@ class RectTrackMarkShape implements RoundedRectSliderTrackShape {
 
       final leftPath = Path();
       leftPath.moveTo(thumbCenter.dx, 0);
-      leftPath.quadraticBezierTo(
-          thumbCenter.dx - 11, 0, thumbCenter.dx - 11, 9);
-      leftPath.conicTo(thumbCenter.dx - 11, height - 9 - deltaLeft,
-          (trackRect.left - 11), height - 9 - deltaLeft, 2.5);
+      leftPath.cubicTo(thumbCenter.dx, 0,
+          thumbCenter.dx - 11, 0, thumbCenter.dx - 11, 10);
+      leftPath.conicTo(thumbCenter.dx - 11, height - 10 - deltaLeft,
+          (trackRect.left - 11), height - 10 - deltaLeft, 2.5);
       leftPath.quadraticBezierTo((trackRect.left - 11), thumbCenter.dy + 11,
           (trackRect.left - 11), thumbCenter.dy + 20);
-      leftPath.lineTo(trackRect.left - 11, height - 9);
-      leftPath.quadraticBezierTo(
-          trackRect.left - 11, height, trackRect.left - 2, height);
+      leftPath.lineTo(trackRect.left - 11, height - 10);
+      leftPath.cubicTo(trackRect.left - 11, height - 10,
+          trackRect.left - 11, height, trackRect.left , height);
       leftPath.lineTo(thumbCenter.dx, height);
       context.canvas.drawPath(leftPath, activePaint);
 
       final rightPath = Path();
       rightPath.moveTo(thumbCenter.dx, 0);
-      rightPath.quadraticBezierTo(
-          thumbCenter.dx + 11, 0, thumbCenter.dx + 11, 9);
-      rightPath.conicTo(thumbCenter.dx + 11, height - 9 - deltaRight,
-          (trackRect.right + 11), height - 9 - deltaRight, 2.5);
+      rightPath.cubicTo(thumbCenter.dx, 0,
+          thumbCenter.dx + 11, 0, thumbCenter.dx + 11, 10);
+      rightPath.conicTo(thumbCenter.dx + 11, height - 10 - deltaRight,
+          (trackRect.right + 11), height - 10 - deltaRight, 2.5);
       rightPath.quadraticBezierTo((trackRect.right + 11), thumbCenter.dy + 11,
           (trackRect.right + 11), thumbCenter.dy + 20);
-      rightPath.lineTo(trackRect.right + 11, height - 9);
-      rightPath.quadraticBezierTo(
-          trackRect.right + 11, height, trackRect.right + 2, height);
+      rightPath.lineTo(trackRect.right + 11, height - 10);
+      rightPath.cubicTo(trackRect.right + 11, height - 10,
+          trackRect.right + 11, height, trackRect.right, height);
       rightPath.lineTo(thumbCenter.dx, height);
       context.canvas.drawPath(rightPath, inactivePaint);
     } else {
-      const Radius trackRadius = Radius.circular(9);
+      const Radius trackRadius = Radius.circular(10);
       context.canvas.drawRRect(
         RRect.fromLTRBAndCorners(
           trackRect.left - 11,
