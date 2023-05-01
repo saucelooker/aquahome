@@ -74,8 +74,9 @@ class DetailPageViewModel extends BaseBl {
               false,
               DateTime(0, 0, 0, result[0].hour, result[0].minute),
               DateTime(0, 0, 0, result[1].hour, result[1].minute)));
+
+      notifyListeners();
       return true;
-      // notifyListeners();
     }
     return false;
   }
@@ -98,8 +99,8 @@ class DetailPageViewModel extends BaseBl {
         okButton: locale.delete));
     if (result is bool && result == true) {
       schedule.remove(item);
+      notifyListeners();
       return true;
-      // notifyListeners();
     }
     return false;
   }
