@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
         value: serviceLocator<GeneralData>(),
         child: Consumer<GeneralData>(
             builder: (context, generalData, widget) => MaterialApp(
+              debugShowCheckedModeBanner: false,
                   localizationsDelegates: const [
                     S.delegate,
                     GlobalMaterialLocalizations.delegate,
