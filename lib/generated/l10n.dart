@@ -140,6 +140,16 @@ class S {
     );
   }
 
+  /// `Поиск`
+  String get search {
+    return Intl.message(
+      'Поиск',
+      name: 'search',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Нет доступных модулей`
   String get mainPageEmpty {
     return Intl.message(

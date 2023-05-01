@@ -13,7 +13,7 @@ import '../../style/theme_colors.dart';
 
 class WorkPeriodCell extends StatefulWidget {
   final WorkPeriodModel model;
-  final Function(SlidableController?)? onDelete;
+  final Function()? onDelete;
   final void Function()? onChangeTime;
 
   const WorkPeriodCell(
@@ -51,7 +51,7 @@ class _WorkPeriodCellState extends State<WorkPeriodCell>
     return ZoomTapAnimation(
       onLongTap: () async {
         if (widget.onDelete != null) {
-          widget.onDelete!(Slidable.of(context));
+          widget.onDelete!();
         }
       },
       onTap: () {

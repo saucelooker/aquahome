@@ -64,7 +64,7 @@ class DetailPageViewModel extends BaseBl {
     }
   }
 
-  Future<bool> addWorkTime() async {
+  Future addWorkTime() async {
     final result = await navigationService.showDialog(const RangeTimeDialog());
     if (result is List<TimeOfDay> && result.length == 2) {
       schedule.insert(
@@ -76,9 +76,8 @@ class DetailPageViewModel extends BaseBl {
               DateTime(0, 0, 0, result[1].hour, result[1].minute)));
 
       notifyListeners();
-      return true;
+
     }
-    return false;
   }
 
   changeWorkTime(WorkPeriodModel item) async {
@@ -93,16 +92,14 @@ class DetailPageViewModel extends BaseBl {
     }
   }
 
-  Future<bool> deleteWorkTime(WorkPeriodModel item) async {
+  Future deleteWorkTime(WorkPeriodModel item) async {
     final result = await navigationService.showDialog(ConfirmDialog(
         message: locale.detailPageDeleteScheduleDialog,
         okButton: locale.delete));
     if (result is bool && result == true) {
       schedule.remove(item);
       notifyListeners();
-      return true;
     }
-    return false;
   }
 
   save() async {

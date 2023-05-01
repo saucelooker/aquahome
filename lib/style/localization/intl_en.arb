@@ -8,6 +8,7 @@
   "skip": "Skip",
   "connect": "Connect",
   "back": "Back",
+  "search": "Search",
 
   "mainPageEmpty": "No modules available",
   "mainPageAdd": "Add",

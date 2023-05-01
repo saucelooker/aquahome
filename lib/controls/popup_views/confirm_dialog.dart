@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import '../../dependency_initializer.dart';
+import '../../generated/l10n.dart';
 import '../../style/fonts.dart';
 import '../../style/theme_colors.dart';
 import '../confirm_button.dart';
@@ -22,6 +23,7 @@ class ConfirmDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeColors themeColors = Theme.of(context).extension<ThemeColors>()!;
     final navService = serviceLocator<NavigationService>();
+    final localization = S.of(context);
     return Padding(
       padding: const EdgeInsets.all(50.0),
       child: Container(
@@ -51,7 +53,7 @@ class ConfirmDialog extends StatelessWidget {
                   alignment: Alignment.bottomLeft,
                   child: ConfirmButton(
                     onTap: () => navService.goBack(false),
-                    text: cancelButton ?? 'Отмена',
+                    text: cancelButton ?? localization.cancel,
                     isConfirmButton: false,
                   ),
                 ),

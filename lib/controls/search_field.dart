@@ -4,20 +4,22 @@ import 'dart:io';
 import 'package:aquahome_app/style/fonts.dart';
 import 'package:flutter/material.dart';
 
+import '../generated/l10n.dart';
 import '../style/theme_colors.dart';
 
 class SearchField extends StatelessWidget {
-  final String placeholder;
+  final String? placeholder;
   final Function(String)? onChange;
   final Function? onTap;
 
   const SearchField(
-      {Key? key, this.placeholder = 'Поиск', this.onTap, this.onChange})
+      {Key? key, this.placeholder, this.onTap, this.onChange})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final ThemeColors themeColors = Theme.of(context).extension<ThemeColors>()!;
+    final localization = S.of(context);
     return SizedBox(
       height: 38,
       child: TextFormField(
@@ -59,7 +61,7 @@ class SearchField extends StatelessWidget {
                 color: themeColors.secondaryTextColor,
               ),
             ),
-            hintText: placeholder,
+            hintText: placeholder?? localization.search,
             hintStyle: TextStyle(color: themeColors.secondaryTextColor)),
       ),
     );

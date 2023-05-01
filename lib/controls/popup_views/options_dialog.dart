@@ -18,38 +18,6 @@ class OptionsDialog extends StatefulWidget {
 
 class _OptionsDialogState extends State<OptionsDialog>
     with SingleTickerProviderStateMixin {
-  // late Animation<double> animationWidth;
-  // late Animation<double> animationHeight;
-  // late Animation transformAnimation;
-  // late Animation sizeAnimation;
-  // late AnimationController animationController;
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //
-  // animationController = AnimationController(
-  //     vsync: this, duration: const Duration(milliseconds: 500));
-  // sizeAnimation = Tween(begin: 0.0, end: 14.0).animate(CurvedAnimation(
-  //     parent: animationController, curve: Curves.easeInOutCubic));
-  // transformAnimation = BorderRadiusTween(
-  //         begin: BorderRadius.circular(2),
-  //         end: const BorderRadius.only(
-  //             topLeft: Radius.circular(12),
-  //             bottomLeft: Radius.circular(12),
-  //             bottomRight: Radius.circular(12),
-  //             topRight: Radius.circular(2)))
-  //     .animate(CurvedAnimation(
-  //         parent: animationController, curve: Curves.easeOutQuart));
-  // animationController.forward();
-  // }
-
-  // @override
-  // void dispose() {
-  //   animationController.dispose();
-  //   super.dispose();
-  // }
-
   bool resize = false;
   var widgetKey = GlobalKey();
 
@@ -57,26 +25,8 @@ class _OptionsDialogState extends State<OptionsDialog>
   Widget build(BuildContext context) {
     final ThemeColors themeColors = Theme.of(context).extension<ThemeColors>()!;
 
-    // WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-    //   if (!resize) {
-    //     setState(() {
-    //       var size = widgetKey.currentContext?.size;
-    //       if (size != null) {
-    //         animationWidth = Tween<double>(begin: 4, end: size.width + 2).animate(
-    //             CurvedAnimation(
-    //                 parent: animationController, curve: Curves.easeOutQuart));
-    //         animationHeight = Tween<double>(begin: 4, end: size.height).animate(
-    //             CurvedAnimation(
-    //                 parent: animationController, curve: Curves.easeOutQuart));
-    //       }
-    //       resize = true;
-    //     });
-    //   }
-    // });
-
     return WillPopScope(
       onWillPop: () async {
-        // await animationController.reverse();
         return true;
       },
       child: Padding(
@@ -88,8 +38,6 @@ class _OptionsDialogState extends State<OptionsDialog>
             alignment: Alignment.topRight,
             child: Container(
                 key: widgetKey,
-                // height: resize ? animationHeight.value : null,
-                // width: resize ? animationWidth.value : null,
                 padding: const EdgeInsets.all(4),
                 decoration: BoxDecoration(
                     borderRadius: const BorderRadius.only(

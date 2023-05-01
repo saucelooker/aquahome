@@ -154,14 +154,7 @@ class DetailPageView extends PageWidget<DetailPageViewModel> {
                       fontSize: 14),
                 ),
                 ActionButton(
-                    onTap: () async {
-                      var result = await viewModel.addWorkTime();
-                      // if (result) {
-                      //   _key.currentState!.insertItem(0,
-                      //       duration: const Duration(
-                      //           milliseconds: fadeAnimationTime));
-                      // }
-                    },
+                    onTap: () => viewModel.addWorkTime(),
                     icon: 'assets/icons/add_icon_alt.png',
                     alignment: Alignment.centerRight,
                     iconColor: themeColors.primaryTextColor),
@@ -187,39 +180,7 @@ class DetailPageView extends PageWidget<DetailPageViewModel> {
                   final item = viewModel.schedule[index];
                   return WorkPeriodCell(
                       model: item,
-                      onDelete: (controller) async {
-                        var result = await viewModel.deleteWorkTime(item);
-                        // if (result) {
-                        //   await controller?.close(
-                        //       duration: const Duration(
-                        //           milliseconds: 150),
-                        //       curve: Curves.easeInOutCubic);
-                        //   _key.currentState!.removeItem(
-                        //       index,
-                        //       (context, animation) =>
-                        //           FadeTransition(
-                        //               key: Key(item.id),
-                        //               opacity: Tween<double>(
-                        //                       begin: 0, end: 1)
-                        //                   .animate(CurvedAnimation(
-                        //                       parent: animation,
-                        //                       curve: Curves
-                        //                           .easeInOutCubic)),
-                        //               child: SizeTransition(
-                        //                 key: Key(item.id),
-                        //                 sizeFactor: CurvedAnimation(
-                        //                     parent: animation,
-                        //                     curve: Curves
-                        //                         .easeInOutCubic),
-                        //                 child: WorkPeriodCell(
-                        //                   model: item,
-                        //                 ),
-                        //               )),
-                        //       duration: const Duration(
-                        //           milliseconds:
-                        //               fadeAnimationTime));
-                        // }
-                      },
+                      onDelete: () => viewModel.deleteWorkTime(item),
                       onChangeTime: () => viewModel.changeWorkTime(item));
                 }),
           ),

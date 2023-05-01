@@ -94,6 +94,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "repeat": MessageLookupByLibrary.simpleMessage("Repeat"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
+        "search": MessageLookupByLibrary.simpleMessage("Search"),
         "settingsPageDarkTheme": MessageLookupByLibrary.simpleMessage("Dark"),
         "settingsPageEnglishLanguage":
             MessageLookupByLibrary.simpleMessage("English"),

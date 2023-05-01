@@ -119,7 +119,8 @@ class _MainPageViewState extends PageWidgetState<MainPageViewModel>
                       offset: const Offset(0, 0),
                       blurRadius: 32,
                       color: themeColors.secondaryTextColor.withOpacity(0.3))
-                ]),
+                ]
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -159,104 +160,3 @@ class _MainPageViewState extends PageWidgetState<MainPageViewModel>
     );
   }
 }
-
-// class MainPageView extends PageWidget<MainPageViewModel> {
-//   const MainPageView({super.key});
-//
-//   @override
-//   Widget build(BuildContext context, MainPageViewModel viewModel,
-//       ThemeColors themeColors, S localizations) {
-//     return Stack(
-//       children: [
-//         Consumer<MainPageViewModel>(
-//             builder: (context, viewModel, child) => viewModel
-//                     .lightsCollection.isNotEmpty
-//                 ? ListView.builder(
-//                     // physics: const BouncingScrollPhysics(),
-//                     padding: const EdgeInsets.only(bottom: 4, top: 116),
-//                     itemCount: viewModel.lightsCollection.length,
-//                     itemBuilder: (context, index) {
-//                       var item = viewModel.lightsCollection[index];
-//                       return LightControlItem(
-//                         model: item,
-//                         onLightControl: (model) => viewModel.sendMessage(model),
-//                         onDetail: () => viewModel.navigateToDetailPage(item),
-//                         onIntensity: () => viewModel.changeIntensity(item),
-//                         onColor: () => viewModel.changeColor(item),
-//                       );
-//                     })
-//                 : Padding(
-//                     padding: const EdgeInsets.only(top: 116),
-//                     child: Align(
-//                       alignment: Alignment.topCenter,
-//                       child: Column(
-//                         mainAxisAlignment: MainAxisAlignment.start,
-//                         crossAxisAlignment: CrossAxisAlignment.center,
-//                         children: [
-//                           Text(localizations.mainPageEmpty,
-//                               style: TextStyle(
-//                                   fontFamily: textLight,
-//                                   fontSize: 16,
-//                                   color: themeColors.primaryTextColor)),
-//                           const SizedBox(height: 4),
-//                           ConfirmButton(
-//                               onTap: () => viewModel.addModule(),
-//                               onLongTap: () =>
-//                                   viewModel.addModule(longPress: true),
-//                               text: localizations.mainPageAdd)
-//                         ],
-//                       ),
-//                     ),
-//                   )),
-//         Container(
-//           height: 98,
-//           decoration: BoxDecoration(
-//               color: themeColors.backgroundColor,
-//               borderRadius: const BorderRadius.only(
-//                   bottomRight: Radius.circular(20),
-//                   bottomLeft: Radius.circular(20)),
-//               boxShadow: [
-//                 BoxShadow(
-//                     offset: const Offset(0, 0),
-//                     blurRadius: 32,
-//                     color: themeColors.secondaryTextColor.withOpacity(0.3))
-//               ]),
-//           child: Column(
-//             mainAxisAlignment: MainAxisAlignment.start,
-//             children: [
-//               const Padding(
-//                   padding: EdgeInsets.symmetric(horizontal: 16),
-//                   child: SearchField()),
-//               const SizedBox(height: 16),
-//               Row(
-//                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-//                 children: [
-//                   ActionButton(
-//                       onTap: () {},
-//                       icon: Icons.change_circle_rounded,
-//                       iconColor: themeColors.primaryTextColor),
-//                   ActionButton(
-//                       onTap: () => viewModel.addModule(),
-//                       icon: Icons.add_circle,
-//                       iconColor: themeColors.primaryTextColor),
-//                   ActionButton(
-//                       onTap: () => viewModel.navigationService
-//                           .navigationTo(settingPageRoute),
-//                       icon: Icons.settings_rounded,
-//                       iconColor: themeColors.primaryTextColor),
-//                 ],
-//               ),
-//             ],
-//           ),
-//         )
-//       ],
-//     );
-//   }
-//
-//   @override
-//   AppBarConfig appBarConfiguration(MainPageViewModel viewModel) {
-//     return AppBarConfig(
-//       title: 'AQUAHOME',
-//     );
-//   }
-// }
