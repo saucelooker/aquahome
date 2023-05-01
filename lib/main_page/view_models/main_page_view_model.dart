@@ -37,7 +37,8 @@ class MainPageViewModel extends BaseBl {
   }
 
   Future<void> addModule({bool longPress = false}) async {
-    if (longPress && kDebugMode) {
+    //if (longPress && kDebugMode) {
+    if (longPress) {
       lightsCollection.insert(0,
           LightControlModel(entity: LightControlEntity(id: '192.168.1.129')));
       notifyListeners();
@@ -101,13 +102,12 @@ class MainPageViewModel extends BaseBl {
   }
 
   showOptions() async {
-    final result = await navigationService.showDialog(
-       OptionsDialog(options: [locale.mainPageAddPopup, locale.mainPageSettingsPopup]));
+    final result = await navigationService.showDialog(OptionsDialog(
+        options: [locale.mainPageAddPopup, locale.mainPageSettingsPopup]));
     if (result is String) {
-      if(result == locale.mainPageAddPopup){
+      if (result == locale.mainPageAddPopup) {
         _navService.navigationTo(searchPageRoute);
-      }
-      else{
+      } else {
         _navService.navigationTo(settingPageRoute);
       }
     }

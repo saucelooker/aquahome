@@ -48,30 +48,30 @@ class _WorkPeriodCellState extends State<WorkPeriodCell>
   Widget build(BuildContext context) {
     final themeColors = Theme.of(context).extension<ThemeColors>()!;
     _animationController.value = widget.model.enable ? 1 : 0;
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-          color: themeColors.secondaryBackgroundColor,
-          borderRadius: BorderRadius.circular(16)),
-      child: AnimatedBuilder(
-        animation: _animationController,
-        builder: (_, __) => Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ZoomTapAnimation(
-              onTap: () {
-                if (widget.onChangeTime != null) {
-                  widget.onChangeTime!();
-                }
-              },
-              onLongTap: () async {
-                if (widget.onDelete != null) {
-                  widget.onDelete!(Slidable.of(context));
-                }
-              },
-              end: 0.98,
-              child: AnimatedSwitcher(
+    return ZoomTapAnimation(
+      onLongTap: () async {
+        if (widget.onDelete != null) {
+          widget.onDelete!(Slidable.of(context));
+        }
+      },
+      onTap: () {
+        if (widget.onChangeTime != null) {
+          widget.onChangeTime!();
+        }
+      },
+      end: 0.98,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            color: themeColors.secondaryBackgroundColor,
+            borderRadius: BorderRadius.circular(16)),
+        child: AnimatedBuilder(
+          animation: _animationController,
+          builder: (_, __) => Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AnimatedSwitcher(
                 layoutBuilder: (currentChild, previousChild) {
                   return Stack(
                     alignment: Alignment.centerLeft,
@@ -132,37 +132,37 @@ class _WorkPeriodCellState extends State<WorkPeriodCell>
                   ],
                 ),
               ),
-            ),
-            Expanded(
-              child: Align(
-                alignment: Alignment.bottomRight,
-                child: SizedBox(
-                  width: Platform.isAndroid ? 40 : null,
-                  height: Platform.isAndroid ? 30 : null,
-                  child: Switch.adaptive(
-                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    value: widget.model.enable,
-                    onChanged: (val) {
-                      if (val) {
-                        _animationController.animateTo(1,
-                            curve: Curves.easeInOutCubic);
-                        widget.model.enable = true;
-                      } else {
-                        _animationController.animateTo(0,
-                            curve: Curves.easeInOutCubic);
-                        widget.model.enable = false;
-                      }
-                    },
-                    inactiveThumbColor: themeColors.primaryBackgroundColor,
-                    splashRadius: 0,
-                    activeColor: Platform.isAndroid ? themeColors.theme == ThemeMode.dark
-                        ? themeColors.primaryTextColor
-                        : themeColors.thirdTextColor : null,
+              Expanded(
+                child: Align(
+                  alignment: Alignment.bottomRight,
+                  child: SizedBox(
+                    width: Platform.isAndroid ? 40 : null,
+                    height: Platform.isAndroid ? 30 : null,
+                    child: Switch.adaptive(
+                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      value: widget.model.enable,
+                      onChanged: (val) {
+                        if (val) {
+                          _animationController.animateTo(1,
+                              curve: Curves.easeInOutCubic);
+                          widget.model.enable = true;
+                        } else {
+                          _animationController.animateTo(0,
+                              curve: Curves.easeInOutCubic);
+                          widget.model.enable = false;
+                        }
+                      },
+                      inactiveThumbColor: themeColors.primaryBackgroundColor,
+                      splashRadius: 0,
+                      activeColor: Platform.isAndroid ? themeColors.theme == ThemeMode.dark
+                          ? themeColors.primaryTextColor
+                          : themeColors.thirdTextColor : null,
+                    ),
                   ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
